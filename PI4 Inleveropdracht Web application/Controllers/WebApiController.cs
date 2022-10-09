@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace PI4_Inleveropdracht_Web_application.Controllers
 {
@@ -17,9 +18,9 @@ namespace PI4_Inleveropdracht_Web_application.Controllers
         }
 
         // GET: api/WebApi/5
-        public Student Get(int id, string StudentNaam, string StudetWachtwoord)
+        public string Get(int StudentId)
         {
-            return StudentNaam;
+            return "StudentId";
         }
 
         // POST: api/WebApi
@@ -36,5 +37,42 @@ namespace PI4_Inleveropdracht_Web_application.Controllers
         public void Delete(int id)
         {
         }
+
+        //public ActionResult Index()
+        //{
+        //    IEnumerable<Student> students = null;
+
+        //    using (var client = new HttpClient())
+         //   {
+         //       client.BaseAddress = new Uri("http://localhost:44344/api/");
+         //       //HTTP GET
+         //       var responseTask = client.GetAsync("student");
+         //       responseTask.Wait();
+
+         //       var result = responseTask.Result;
+          //      if (result.IsSuccessStatusCode)
+         //       {
+         //           var readTask = result.Content.ReadAsAsync<IList<Student>>();
+         //           readTask.Wait();
+         
+         //           students = readTask.Result;
+         //       }
+         //       else //web api sent error response 
+         //       {
+                    //log response status here..
+
+         //           students = Enumerable.Empty<Student>();
+
+          //          ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+         //      }
+         //   }
+         //   return View(students);
+        //}
+
+        //private ActionResult View(IEnumerable<Student> students)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
+
