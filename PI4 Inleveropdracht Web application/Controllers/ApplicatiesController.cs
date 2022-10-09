@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using PI4_Inleveropdracht_Web_application.Models;
 
 namespace PI4_Inleveropdracht_Web_application.Controllers
@@ -15,16 +16,27 @@ namespace PI4_Inleveropdracht_Web_application.Controllers
         private Modelss db = new Modelss();
 
         // GET: Applicaties
-        public ActionResult Index()
+        public ActionResult Index(AuthorizationContext heee)
         {
             if (Session["StudentNaam"] != null)
             {
-                int ofe = Convert.ToInt32(Session["StudentId"]);
+                //string dog = (string)Session["Studentnaam"];
+                //return View();
+                //string d = "";
+                //int hope = 0;
+                //heee.HttpContext.CrSession["StudentNaam"] = d;
 
+                //var or = from s in db.Students
+                //         where s.StudentNaam.Equals(d)
+                //         select s.StudentId;
+                //hope = or.FirstOrDefault();
+
+
+                //int x = Convert.ToInt32(d);
                 var help = from a in db.Applicaties
-                           where a.ApplicatieId == ofe
+                           where a.ApplicatieId == 1
                            select a;
-                return View(help.DefaultIfEmpty());
+                return View(help.ToList());
             }
             else
             {

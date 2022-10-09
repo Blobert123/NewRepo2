@@ -19,6 +19,7 @@
                 @Html.ActionLink("HBO-ICT Solutions", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @Session["StudentNaam"]
                 <ul class="nav navbar-nav">
                     @if (Session["BeheerderNaam"] != null)
                     {
