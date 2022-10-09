@@ -1,0 +1,53 @@
+﻿@model PI4_Inleveropdracht_Web_application.Models.Beheerder
+
+@{
+    ViewBag.Title = "BeheerderLogin";
+    Layout = "~/Views/Shared/_LoginView.cshtml";
+}
+
+@using (Html.BeginForm("BeheerderLogin", "Beheerders", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Mvc Simple Login Application Demo</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.BeheerderNaam)</td>
+                <td>@Html.TextBoxFor(a => a.BeheerderNaam)</td>
+                <td>@Html.ValidationMessageFor(a => a.BeheerderNaam)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.BeheerderWachtwoord)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.BeheerderWachtwoord)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.BeheerderWachtwoord)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
+@using (Html.BeginForm("Login", "Students"))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Studenten" />
+}

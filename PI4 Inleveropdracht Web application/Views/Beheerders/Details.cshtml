@@ -1,0 +1,42 @@
+﻿@model PI4_Inleveropdracht_Web_application.Models.Beheerder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Beheerder</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BeheerderNaam)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BeheerderNaam)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BeheerderWachtwoord)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BeheerderWachtwoord)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BeheerderId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

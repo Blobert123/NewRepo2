@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Bind.It";
+}
+
+<fieldset>
+    @if (Session["BeheerderNaam"] != null)
+    {
+        <text>
+            Welcome @Session["BeheerderNaam"].ToString()
+        </text>
+    }
+    else if (Session["StudentNaam"] != null)
+    {
+        <text>
+            Welcome @Session["StudentNaam"].ToString()
+        </text>
+    }
+</fieldset>
+
+    <div class="jumbotron">
+
+        <h1>Bind.It</h1>
+        <p class="lead">Bind.It is het platform voor scholen om projecten en applicaties te overzien en te delen. </p>
+        <p><a href="" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Developer</h2>
+            <p>
+                De developer is Robert Zhou en maakt een oplossing voor HBO-ICT om registratie van verschillende dingen te kunnen doen.
+            </p>
+            <p><a class="btn btn-default" href="https://www.linkedin.com/in/robert-zhou-bbb339212/"> Developer &raquo;</a></p>
+        </div>
+    </div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PI4_Inleveropdracht_Web_application.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @if (Session["BeheerderNaam"] != null)
+    {
+        <p> @Html.ActionLink("Create New", "Create") </p>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentWachtwoord)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentNaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentWachtwoord)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

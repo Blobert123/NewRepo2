@@ -1,0 +1,53 @@
+﻿@model PI4_Inleveropdracht_Web_application.Models.Student
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginView.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Students", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Bind.It Login</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.StudentNaam)</td>
+                <td>@Html.TextBoxFor(a => a.StudentNaam)</td>
+                <td>@Html.ValidationMessageFor(a => a.StudentNaam)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.StudentWachtwoord)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.StudentWachtwoord)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.StudentWachtwoord)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
+@using (Html.BeginForm("BeheerderLogin", "Beheerders"))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Beheerders"/>
+}

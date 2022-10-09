@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PI4_Inleveropdracht_Web_application.Models.BeheerderApplicatie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.BeheerderId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.BeheerderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.BeheerderId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
